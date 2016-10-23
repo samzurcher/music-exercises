@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Note Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://unpkg.com/vexflow/releases/vexflow-min.js"></script>
+    <style>
+        table td div {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>
+                    <div id="e5"></div>
+                </td>
+                <td>
+                    <div id="f5"></div>
+                </td>
+                <td>
+                    <div id="g5"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="b4"></div>
+                </td>
+                <td>
+                    <div id="c5"></div>
+                </td>
+                <td>
+                    <div id="d5"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="g4"></div>
+                </td>
+                <td>
+                    <div id="a4"></div>
+                </td>
+                <td>
+                    <div id="b4-3"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="d4"></div>
+                </td>
+                <td>
+                    <div id="e4"></div>
+                </td>
+                <td>
+                    <div id="f4"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="a3"></div>
+                </td>
+                <td>
+                    <div id="b3"></div>
+                </td>
+                <td>
+                    <div id="c4"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="e3"></div>
+                </td>
+                <td>
+                    <div id="f3"></div>
+                </td>
+                <td>
+                    <div id="g3"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+        var draw = function(note, id) {
+            var vf = new Vex.Flow.Factory({
+                renderer: {selector: id || note, width: 150, height: 150}
+            });
+            var score = vf.EasyScore();
+            var system = vf.System();
+
+            system.addStave({
+                voices: [
+                    score.voice(score.notes(note + '/w'))
+                ]
+            }).addClef('treble');
+
+            vf.draw();
+        };
+        draw('e5');
+        draw('f5');
+        draw('g5');
+        draw('b4');
+        draw('c5');
+        draw('d5');
+        draw('g4');
+        draw('a4');
+        draw('b4', 'b4-3');
+        draw('d4');
+        draw('e4');
+        draw('f4');
+        draw('a3');
+        draw('b3');
+        draw('c4');
+        draw('e3');
+        draw('f3');
+        draw('g3');
+
+
+
+
+    </script>
+</body>
+</html>
